@@ -7,9 +7,6 @@ public class WebServer implements WebRequestObservable {
     //registers observers on the web server
     private ArrayList<WebRequestObserver> observers = new ArrayList();
 
-    //register every webrequest made to the server
-    private ArrayList<WebRequest> allRequests = new ArrayList<WebRequest>();
-
     //Setter
     public void setFirstHandler(RequestHandler firstHandler) {
         this.firstHandler = firstHandler;
@@ -33,7 +30,6 @@ public class WebServer implements WebRequestObservable {
         for (WebRequestObserver observer : observers) {
             observer.update(request);
         }
-        this.allRequests.add(request);
     }
 
 

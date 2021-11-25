@@ -61,6 +61,8 @@ public class Main {
     public static void main(String[] args) {
         WebServer webServer = new WebServer();
         FileLogger fileLogger = new FileLogger("logs.txt");
+        //We define fileLogger as an observer
+        webServer.attach(fileLogger);
 
         User regularUser = new User(false);
         User adminUser = new User(true);
@@ -76,9 +78,6 @@ public class Main {
 
         //We declare the first handler
         webServer.setFirstHandler(h1);
-
-        //We instanciate Filelogger
-        FileLogger filelLogger = new FileLogger("logs.txt");
 
 
         /**
